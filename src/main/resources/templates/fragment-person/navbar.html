@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" th:fragment="navbar">
+  <div class="container">
+    <a class="navbar-brand" th:href="@{/person}">E-books</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/person/book-list}">Find a book</a>
+        </li>
+
+        <li class="nav-item">
+          <form th:action="@{/logout}" th:method="POST">
+            <button class="nav-link">Log out</button>
+          </form>
+        </li>
+      </ul>
+
+      <form class="d-flex" role="search" th:action="@{'/person/search-book'}" th:method="GET">
+        <input style="background-color: white" class="form-control me-2" name="name" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+</body>
+</html>

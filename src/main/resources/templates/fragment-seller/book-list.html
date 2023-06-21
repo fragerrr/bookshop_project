@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+    <div th:fragment="book-list">
+      <table class="table table-dark table-striped mt-2">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Year</th>
+          <th>Owner</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="book : ${bookList}">
+          <tr>
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getName()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getYear()}"></td>
+            <td><a th:href="@{'http://wa.me/' + ${book.getOwner().getNumber()}}" class="link">Link for chat</a></td>
+            <td><a th:href="@{'/book/' + ${book.getId()} + '/edit'}" class="btn btn-light">EDIT</a></td>
+            <td><a th:href="@{'/book/' + ${book.getId()} + '/delete'}" class="btn btn-light">DELETE</a></td>
+          </tr>
+        </th:block>
+        </tbody>
+      </table>
+
+    </div>
+</body>
+</html>

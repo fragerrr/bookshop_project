@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" th:fragment="navbar">
+  <div class="container">
+    <a class="navbar-brand" th:href="@{/admin}">E-books</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/person-list}">Person list</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/seller-list}">Seller list</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/all-books}">All books</a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <form th:action="@{/logout}" th:method="POST">
+            <button class="nav-link">Log out</button>
+          </form>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+</body>
+</html>

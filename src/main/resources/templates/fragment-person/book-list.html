@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+    <div th:fragment="book-list">
+      <table class="table table-dark table-striped mt-2">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="book : ${bookList}">
+          <tr>
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getName()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getYear()}"></td>
+            <td><a th:href="@{'http://wa.me/' + ${book.getOwner().getNumber()}}">Link for chat</a></td>
+          </tr>
+        </th:block>
+        </tbody>
+      </table>
+    </div>
+
+</body>
+</html>
